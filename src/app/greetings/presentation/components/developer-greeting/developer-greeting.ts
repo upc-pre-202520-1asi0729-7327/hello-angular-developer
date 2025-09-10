@@ -57,6 +57,6 @@ export class DeveloperGreeting {
    * This is a computed property that returns true if either the first name or last name is empty,
    * indicating that the developer is not fully registered.
    */
-  isRegistered = computed(() => !this.firstName() || !this.lastName());
+  isRegistered = computed(() => this.firstName() && this.lastName());
 
 }

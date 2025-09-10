@@ -22,7 +22,7 @@
 
   <!-- Action buttons section -->
   <div>
-    <button type="submit" [disabled]="isFormValid()">Register</button>
+    <button type="submit" [disabled]="!isFormValid()">Register</button>
     <button type="button" (click)="deferRegistration()">Later</button>
     <button type="button" (click)="clearFields()">Clear</button>
   </div>
