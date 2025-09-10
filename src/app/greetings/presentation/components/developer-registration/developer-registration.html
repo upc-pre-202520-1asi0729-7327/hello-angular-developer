@@ -1,0 +1,29 @@
+<!-- Heading for the registration form -->
+<h1>New Developer</h1>
+
+<!-- Form for developer registration -->
+<form (ngSubmit)="submitRegistrationRequest()">
+  <!-- Input field for first name -->
+  <label for="first-name">First Name:</label>
+  <input id="first-name" type="text" [value]="firstName()"
+         (input)="firstName.set($any($event.target).value)">
+  <!-- Validation errors display for first name -->
+  @if (firstName().trim().length > 0 && firstName().trim().length < 2) {
+    <div>First name must be at least 2 characters.</div>
+  }
+  <!-- Input field for last name -->
+  <label for="last-name">Last Name:</label>
+  <input id="last-name" type="text" [value]="lastName()"
+         (input)="lastName.set($any($event.target).value)">
+  <!-- Validation errors display for last name -->
+  @if (lastName().trim().length > 0 && lastName().trim().length < 2) {
+    <div>Last name must be at least 2 characters.</div>
+  }
+
+  <!-- Action buttons section -->
+  <div>
+    <button type="submit" [disabled]="isFormValid()">Register</button>
+    <button type="button" (click)="deferRegistration()">Later</button>
+    <button type="button" (click)="clearFields()">Clear</button>
+  </div>
+</form>
